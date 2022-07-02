@@ -22,7 +22,7 @@ create table users(
     updated_at timestamp NULL DEFAULT  current_timestamp()
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
+alter table users add column google_id bigint(20) ;
 
 create table events(
     id  bigint(20) unsigned not null primary key auto_increment,

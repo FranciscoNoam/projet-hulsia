@@ -70,7 +70,9 @@ class PayementController extends Controller
         return view("stripe",compact('data'));
     }
 
+    public function googleDrive(Request $req){
 
+    }
     /*
      public function store(Request $request)
     {

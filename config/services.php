@@ -35,6 +35,12 @@ return [
     ],
 
     'stripe' => ['secret' => env('STRIPE_SECRET_KEY'), 'public' => env('STRIPE_PUBLIC_KEY')],
-
+ 
+    // apel coter controller ou view: {{ config('services.google.client_id') }}
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT')
+    ],
   
 ];

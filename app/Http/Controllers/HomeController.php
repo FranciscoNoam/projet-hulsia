@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
-use Stripe;
 class HomeController extends Controller
 {
     /**
@@ -25,12 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-    /*  Stripe\Stripe::setApiKey(config('services.stripe.secret'));
-      $user = auth()->user();
-    //  $user->createAsStripeCustomer();
-       $intent = $user->createSetupIntent();
-      return view('teste',compact('intent')); */
       return view('stripe');
+    }
+    public function index2()
+    {
+      return view('connect_google_drive');
     }
 }
