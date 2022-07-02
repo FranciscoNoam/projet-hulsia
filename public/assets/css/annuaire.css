@@ -1,0 +1,247 @@
+.input {
+    padding: 2px 1rem;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #888787;
+    border: 1px solid #bdbdbd;
+    font-size: 16px;
+    letter-spacing: 1px;
+    height: 50px !important;
+}
+
+.input:focus,
+.input:valid {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 2px solid #7635dc !important;
+    outline-width: 0 !important;
+}
+
+.form-control-placeholder {
+    position: relative;
+    bottom: 2.5rem;
+    padding: 12px 2px 0 2px;
+    padding: 0;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    transition: all 300ms;
+    opacity: 0.5;
+    left: 2rem;
+}
+
+.input:focus + .form-control-placeholder,
+.input:valid + .form-control-placeholder {
+    padding-right: 0.5rem;
+    opacity: 0;
+}
+
+.annuaire {
+    background: white;
+}
+
+.btn_submit {
+    background-color: #7635dc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.logo_formation img {
+    height: 3.125rem;
+    width: 3.125rem;
+}
+
+.recherche {
+    border: none;
+    border-bottom: 5px solid #7635dc;
+}
+
+.btn_actions {
+    background: #7635dc;
+    color: white;
+    padding: 0.5rem 0.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.5s ease;
+}
+
+.btn_actions:hover {
+    transform: scale(1.1);
+}
+
+.btn_actions .bx {
+    position: relative;
+    top: 0.3rem;
+    margin-right: 0.5rem;
+    font-size: 1.4rem !important;
+}
+
+.btn_actions a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.phone_detail {
+    background: rgba(128, 128, 128, 0.176);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.phone_detail .bx {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.adresse {
+    color: rgba(35, 35, 248, 0.759);
+}
+.detail_content {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin: auto;
+    transition: all .5s ease;
+}
+
+.detail_content:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.filtres {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 1rem 1.5rem;
+    height: 22rem;
+    position: sticky;
+    top: 3rem;
+}
+.filtres h6 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.alphabet {
+    display: flex;
+    place-content: center;
+    font-size: 1.3rem;
+    letter-spacing: 1.5rem;
+    cursor: pointer;
+    color: grey;
+    border-radius: 5px;
+    padding: 0.5rem 0.5rem;
+    background: #7535dc19;
+}
+.alphabet span{
+    text-decoration: none;
+}
+
+.alphabet span:hover{
+    color: #7635dc;
+}
+
+.logo_content{
+    display: grid;
+}
+
+.logo_img{
+    width: 123px;
+    height: 92px;
+}
+.pagination{
+    display: flex;
+}
+.detail_content h4 a:hover{
+    color: #7635dc;
+}
+
+.activer_filtre{
+color: #7635dc;
+}
+
+/* details cfp */
+
+.details_content {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin: auto;
+    transition: all .5s ease;
+    color: black;
+    border: none;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.location{
+    background: url("../../images/CFP/Capture\ d’écran\ 2022-03-14\ à\ 15.44.30.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: content-box;
+}
+.services{
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.services p{
+    color: grey;
+}
+
+.services .choisir{
+    color: black;
+}
+
+.services .border_end{
+    border: none;
+    border-right: 1px solid grey;
+}
+.services .bx{
+    color: #5433FF;
+    font-size: 1.5rem;
+    margin-right: .5em;
+    position: relative;
+    top: .3rem;
+}
+
+.avis{
+    background-color: rgba(128, 128, 128, 0.124);
+    padding: 1rem;
+}
+
+.avis .bx{
+    font-size: 1.5rem;
+    color: #5433FF;
+    margin-right: 1rem;
+}
+
+.details_plus h5{
+    font-size: 1.8rem;
+}
+.details_plus .strong{
+    font-size: 1.3rem;
+    font-stretch: 50%;
+}
+
+.horloge{
+    color: #7635dc;
+}
+
+.formations{
+    border: 1px solid grey;
+    border-radius: 30px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    transition: all .5s ease;
+}
+
+.formations:hover{
+    color: white;
+    background: #7635dc;
+    border: none;
+    transform: scale(1.1);
+}
