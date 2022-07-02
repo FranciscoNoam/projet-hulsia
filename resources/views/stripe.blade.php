@@ -123,7 +123,14 @@
                                 </div>
                                 <div id="card-errors" role="alert"></div>
                                 <div id="submit_botton">
-                                    <button id="card-button" type="button" class=" mt-4 btn " style="font-size: 18px;height: 60px;background-color: #ea580c; color:white;">PAYER</button>
+                                    <div class="row justify-content">
+                                            <h5 class="mx-2  font-bold text-xl">
+                                                <span class="font-bold" id="traitement"></span>
+                                            </h5>
+                                         <div class="d-flex">
+                                            <button id="card-button" type="button" class=" mt-4 btn " style="font-size: 18px;height: 60px;background-color: #ea580c; color:white;">PAYER</button>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </form>
@@ -169,9 +176,11 @@ $(function() {
             var token = response.id;
             $('#payment-form').find('input[type=text]').empty();
             $('#payment-form').append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-             $('#payment-form').submit();
+            document.getElementById("traitement").innerHTML = "Traitement En Cour..." 
+            $('#card-button').prop('disabled', 'true');
+            $('#payment-form').submit();
 
-   
+           
         }
     }
 
