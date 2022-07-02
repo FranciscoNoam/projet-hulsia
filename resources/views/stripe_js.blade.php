@@ -72,27 +72,26 @@
 
                             </div>
                         </div>
-                        @if (isset($data))
                         <div class="row mt-5">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <h6 class="mx-4  font-bold text-xl">
-                                    <span class="text-gray-900" id="text_payement_id">Payement ID: {{ $data['payement_id_json'] }}</span>  
+                                    <span class="text-gray-900" id="text_payement_id"></span>  
                                 </h6>
                                 <h6 class="mx-4  font-bold text-xl">
-                                    <span class="text-gray-900" id="text_status">Status: {{ $data['status_json'] }}</span>  
+                                    <span class="text-gray-900" id="text_status"></span>  
                                 </h6>
                                 <h6 class="mx-4  font-bold text-xl">
-                                    <span class="text-gray-900" id="text_carte_type">Carte Type: {{ $data['carte_type_json'] }}</span>  
+                                    <span class="text-gray-900" id="text_carte_type"></span>  
                                 </h6>
                             </div>
-                           
+                            <div class="col-md-6">
+                              
+                            </div>
                         </div>
-                        @endif
-                        
                         <div class=" formuaire_payement mx-4" >
-                        <form role="form" class="require-validation" action="{{route('payement.store')}}" method="post" id="payment-form"
-                        data-cc-on-file="false" >
-                        {{-- <form role="form"  class="require-validation" id="payment-form" data-cc-on-file="false" > --}}
+                        {{-- <form role="form"  action="{{route('payement.store')}}" method="post" id="payment-form"
+                        data-cc-on-file="false" > --}}
+                        <form role="form"  class="require-validation" id="payment-form" data-cc-on-file="false" >
                                 @csrf
 
                                 <input type="number" id="data_stock_somme_qte" name="qte" value="0" hidden/>
@@ -140,13 +139,14 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
 $(function() {
+    var StripeKey = "{{ config('services.stripe.public') }}";
+    Stripe.setPublishableKey(StripeKey);
+          
     var $form = $(".require-validation");
     $('#card-button').bind('click', function(e) {
        
         if (!$form.data('cc-on-file')) {
-            var StripeKey = "{{ config('services.stripe.public') }}";
-            e.preventDefault();
-            Stripe.setPublishableKey(StripeKey);
+             e.preventDefault();
             Stripe.createToken({
                 number: $('#card-number').val(),
                 cvc: $('#card-cvc').val(),
@@ -167,9 +167,33 @@ $(function() {
             var token = response.id;
             $('#payment-form').find('input[type=text]').empty();
             $('#payment-form').append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
-             $('#payment-form').submit();
+            // $('#payment-form').submit();
+        const  tmp= {
+            payement_id: token
+            , carte_type: carte_type
+            , montant_total: $("#data_stock_somme_montant").val()
+            ,qte: $("#data_stock_somme_qte").val()
+            ,name: $("#card-holder-name").val()
+        };
 
-   
+            $.ajax({
+                url: "{{route('payement.store')}}"
+                , type: 'POST'
+                , data: tmp
+                , success: function(response) {
+                    alert(JSON.stringify(response));
+                    if(response.status_json!=null){
+                        document.getElementById("text_carte_type").innerHTML="Carte Type: "+response.carte_type_json;
+                        document.getElementById("text_status").innerHTML="Status: "+response.status_json;
+                        document.getElementById("text_payement_id").innerHTML="Payement ID: "+response.payement_id_json;
+                    }
+                }
+                , error: function(error) {
+                    document.getElementById("text_error").innerHTML="Error chargement: "+error.error_json;
+                    console.log(JSON.stringify(error.error_json));
+                    alert(error.error_json);
+                }
+            }); 
         }
     }
 
