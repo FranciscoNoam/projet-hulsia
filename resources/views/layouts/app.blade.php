@@ -27,20 +27,15 @@
 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                    <!-- <img src="{{asset('images/logo_laravel.png')}}" width="50px" height="50px" alt="" class="block h-10 w-auto fill-current text-gray-600"/> -->
                 </a>
 
-                <div class="navbar-brand hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a class="navbar-brand navbar-link active inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('home') }}">
-                    Test 1 - Stripe
+                    <a style="font-size: 15px;" class="navbar-brand navbar-link active inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ route('home') }}">               
+                   Test 1 - Stripe
                     </a>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <a class="navbar-brand inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ url('google') }}">
+                <a  style="font-size: 15px;" class="navbar-brand inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out" href="{{ url('google') }}">
                 Test 2 - Google Drive
                 </a>
-                </div>
-
+              
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

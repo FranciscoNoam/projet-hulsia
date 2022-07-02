@@ -28,25 +28,25 @@
     color:white;
 }
 </style>
-<div class=" bg-white mb-5">
+<div class=" container justify-content-center ">
 
-    <div class="container my-5 mx-4" style=" max-height: auto; ">
+    <div class="container navbar navbar-expand-md navbar-light bg-white shadow-sm mx-1  my-3">
             <div class="row px-5 py-5 flex items-stretch">
 
                 <div class="col-md-5">
 
 
-                    <div class="demo_product card shadow-md p-3 mb-5 bg-body rounded row" style="width: auto;">
+                    <div class="demo_product shadow-sm p-3 mb-5 bg-body rounded row" style="width: auto;">
                         <img src="{{ asset('images/logo_laravel.png')}}" class="card-img-top" height="300px" width="auto" alt="...">
                         <div class="card-body">
                             <h1 class="text-gray-900 font-bold text-2xl">Produit demo</h1>
                             <p class="mt-2 text-gray-600 text-sm">Product description demo</p>
                             <h5 class="text-gray-900 font-bold text-xl" > <span id="solde_product_init">12.5</span> €</h5>
                             <div>
-                            <button type="button" value="1" id="decrementQte" class="btn btn-dark px-3 py-1 bg-gray w-36 text-white text-md font-bold uppercase rounded focus:ring focus:ring-gray-300 focus:outline-none active:bg-gray-900 ">
+                            <button style="font-size: 20px;" type="button" value="1" id="decrementQte" class="  btn btn-dark px-3 py-1 bg-gray w-36 text-white text-md font-bold uppercase rounded focus:ring focus:ring-gray-300 focus:outline-none active:bg-gray-900 ">
                                 -
                             </button>
-                            <button type="button" value="1"  id="ajoutQte" class="btn btn-dark px-3 py-1 bg-gray w-36 text-white text-md font-bold uppercase rounded focus:ring focus:ring-gray-300 focus:outline-none active:bg-gray-900 ">
+                            <button style="font-size: 20px;" type="button" value="1"  id="ajoutQte" class=" ml-3 btn btn-dark px-3 py-1 bg-gray w-36 text-white text-md font-bold uppercase rounded focus:ring focus:ring-gray-300 focus:outline-none active:bg-gray-900 ">
                             +
                             </button>
                             <input type="number" id="data_montant_init" value="12.5" hidden/>
@@ -54,42 +54,44 @@
                         </div>
                     </div>
                 </div>
-
-                    <div class="col-md-7">
+                <div class="col-md-1"></div>
+                    <div class="col mr-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4 class="mx-4  font-bold text-xl">
-                                <span class="text-gray-900">Quantité:</span>  <span id="totale_qte">0</span>  €
-                                </h4>
-                                <h4 class="mx-4  font-bold text-xl">
-                                    <span class="text-gray-900">Total:</span> <span id="totale_montant">0</span>  €
-                                </h4>
+                                <h5 class="mx-2  font-bold text-xl">
+                                <span class="font-bold  text-gray-900">Quantité:</span>  <span id="totale_qte">0</span>  €
+                                </h5>
+                                <h5 class="mx-2  font-bold text-xl">
+                                    <span class="font-bold">Total:</span> <span id="totale_montant">0</span>  €
+                                </h5>
                             </div>
                             <div class="col-md-6">
-                                <div align="right" class="mx-4">
-                                <button type="button" id="payement_submit"  class="btn btn-success">PROCEDER AU PAIMENT</button>
+                                <div align="right">
+                                <button type="button" id="payement_submit"  class="btn btn-success" style="font-size: 20px;height: 60px;">PROCEDER AU PAIMENT</button>
                                 </div>
 
                             </div>
                         </div>
-                        @if (isset($data))
-                        <div class="row mt-5">
+                        <div class="row my-5 mx-2">
                             <div class="col-md-12">
-                                <h6 class="mx-4  font-bold text-xl">
+                                @if (isset($data))
+                      
+                                <h6 class="mx-2 font-bold text-xl">
                                     <span class="text-gray-900" id="text_payement_id">Payement ID: {{ $data['payement_id_json'] }}</span>  
                                 </h6>
-                                <h6 class="mx-4  font-bold text-xl">
+                                <h6 class="mx-2 font-bold text-xl">
                                     <span class="text-gray-900" id="text_status">Status: {{ $data['status_json'] }}</span>  
                                 </h6>
-                                <h6 class="mx-4  font-bold text-xl">
+                                <h6 class="mx-2 font-bold text-xl">
                                     <span class="text-gray-900" id="text_carte_type">Carte Type: {{ $data['carte_type_json'] }}</span>  
                                 </h6>
+                                 @endif
                             </div>
                            
                         </div>
-                        @endif
+                       
                         
-                        <div class=" formuaire_payement mx-4" >
+                        <div class=" formuaire_payement mt-4 mx-2">
                         <form role="form" class="require-validation" action="{{route('payement.store')}}" method="post" id="payment-form"
                         data-cc-on-file="false" >
                         {{-- <form role="form"  class="require-validation" id="payment-form" data-cc-on-file="false" > --}}
@@ -109,19 +111,19 @@
                                      <input type="text" require name="card-number"  class="  card-number form-control" id="card-number" size="16" placeholder="Numéro de la carte">
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 form-group">
                                          <input type="text" require name="card-expiry-month" maxlength="2" pattern="[0-9]{2}" class=" card-expiry-month form-control" id="card-expiry-month" size="2" placeholder="Mois">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 form-group">
                                          <input type="text" require name="card-expiry-year"  maxlength="2" pattern="[0-9]{4}" class="card-expiry-year  form-control" id="card-expiry-year" size="4" placeholder="Année">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 form-group">
                                          <input type="text" require name="card-cvc" maxlength="3" pattern="[0-9]{3}" class=" card-cvc  form-control" id="card-cvc" size="4" placeholder="CVC">
                                     </div>
                                 </div>
                                 <div id="card-errors" role="alert"></div>
                                 <div id="submit_botton">
-                                    <button id="card-button" type="button" class=" mt-3 btn formuaire_payement" style="background-color: #ea580c; color:white;">PAYER</button>
+                                    <button id="card-button" type="button" class=" mt-4 btn " style="font-size: 18px;height: 60px;background-color: #ea580c; color:white;">PAYER</button>
                                 </div>
 
                             </form>
@@ -177,11 +179,13 @@ $(function() {
 
     /*=================================================*/
       $(document).ready(function() {
-           $('.formuaire_payement').css('display', 'blnoneck');
-         $('#payement_submit').css('display', 'none');
-                 if(Number($("#data_stock_somme_montant").val())>1){
-                    $('#payement_submit').css('display', 'block');
-                 }
+           $('.formuaire_payement').css('display', 'none');
+          $('#payement_submit').prop('disabled', true);
+        //  $('#payement_submit').css('display', 'none');
+                 if(Number($("#data_stock_somme_qte").val())*1>1){
+                    $('#payement_submit').prop('disabled', false);
+                    // $('#payement_submit').css('display', 'block');
+                 } 
     });
 
 
@@ -198,12 +202,12 @@ $(function() {
         var total_montant = 0;
         if(data_stock_somme_qte>1){
              reste_qte = data_stock_somme_qte  - Number($("#decrementQte").val());
-        }
+             $('#payement_submit').prop('disabled', false);
+            } else {
+                $('#payement_submit').prop('disabled', true);
+            }
         total_montant = (reste_qte*montant_init);
-
-        if(data_stock_somme_qte<1){
-            $('#payement_submit').css('display', 'none');
-        }
+       
          $("#data_stock_somme_qte").val(reste_qte);
          $("#data_stock_somme_montant").val(total_montant);
         document.getElementById("totale_qte").innerHTML = reste_qte;
@@ -218,13 +222,10 @@ $(function() {
 
         var reste_qte = Number(document.getElementById("totale_qte").innerHTML);
         var total_montant = 0;
-
-        if(data_stock_somme_qte<1){
-            $('#payement_submit').css('display', 'none');
-        }
-        $('#payement_submit').css('display', 'block');
-         reste_qte = data_stock_somme_qte  + Number($("#ajoutQte").val());
-         total_montant = (reste_qte*montant_init);
+        reste_qte = data_stock_somme_qte  + Number($("#ajoutQte").val());
+       
+           $('#payement_submit').prop('disabled', false);
+          total_montant = (reste_qte*montant_init);
 
         $("#data_stock_somme_qte").val(reste_qte);
         $("#data_stock_somme_montant").val(total_montant);

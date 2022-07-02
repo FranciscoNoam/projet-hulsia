@@ -43,23 +43,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-  /*  public function redirectToGoogle()
+    public function redirectToGoogle()
     {
-         //    return Socialite::driver('google')->redirect(); 
-       
-        $user = Socialite::driver('google')->user();
-        dd($user);
-        //  $user = User::where('google_id', auth()->user()->id)->first();
-        if($user){
-            return Socialite::driver('google')->redirect('/drive.index'); 
-        } else{
-            return Socialite::driver('google')->redirect('auth/google/callback'); 
-        }
+        return Socialite::driver('google')->redirect(); 
     }
 
     public function handleGoogleCallback()
     {
-        dd("aty");
         try {
             $user = Socialite::driver('google')->user();
             $finduser = User::where('google_id', $user->id)->first();
@@ -75,6 +65,6 @@ class LoginController extends Controller
         } catch (Exception $e) {
             return redirect('auth/google');
         } 
-    } */
+    }
 
 }
